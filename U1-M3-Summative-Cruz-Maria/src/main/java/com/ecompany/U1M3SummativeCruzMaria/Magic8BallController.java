@@ -10,14 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import java.util.*;
-
+//setting up controller
 @RestController
 public class Magic8BallController {
+    //creating List filled with answers
     private List<Answer> answerList = new ArrayList<>();
-
+    //creating random
     Random random = new Random();
 
     public Magic8BallController(){
+        //creating responses
         this.answerList.add(new Answer("Totally"));
         this.answerList.add(new Answer("No way"));
         this.answerList.add(new Answer("Maybe"));
@@ -25,9 +27,10 @@ public class Magic8BallController {
         this.answerList.add(new Answer("Absolutely"));
         this.answerList.add(new Answer("Where there's a will there's a way."));
     }
+    //URI is /magic and this is a POST method, so the user can input something
     @RequestMapping(value = "/magic", method = RequestMethod.POST)
     public Answer askQuestion(@RequestBody @Valid Answer question){
-
+        //returns random answer
         return answerList.get(random.nextInt(answerList.size()));
     }
 }

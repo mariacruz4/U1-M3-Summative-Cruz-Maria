@@ -8,15 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import java.util.*;
-
+//setting up controller
 @RestController
 public class QuoteController {
+    //creating List full of arraylists of authors and their quotes
     private List<Quote> quoteList =  new ArrayList<>();
-
+    //creating random
     Random random = new Random();
 
     public QuoteController(){
-
+        //adding authors and quotes
         this.quoteList.add(new Quote("Malala Yousafzai", "Let us remember: One book, one pen, one child, and one teacher can change the world."));
         this.quoteList.add(new Quote("Folgers", "The best part of waking up is Folgers in your cup."));
         this.quoteList.add(new Quote("Muhammad Ali", "I hated every minute of training, but I said, 'Don't quit. Suffer now and live the rest of your life as a champion.'"));
@@ -28,9 +29,10 @@ public class QuoteController {
         this.quoteList.add(new Quote("Wilma Rudolph", "When the sun is shining I can do anything; no mountain is too high, no trouble too difficult to overcome."));
         this.quoteList.add(new Quote("Henry Rollins", "I believe that one defines oneself by reinvention. To not be like your parents. To not be like your friends. To be yourself. To cut yourself out of stone."));
     }
+    //URI is /quote and GET is the method
         @RequestMapping(value = "/quote", method = RequestMethod.GET)
         public Quote getQuote(){
+        //return random author and their quote
         return quoteList.get(random.nextInt(quoteList.size()));
         }
-
 }

@@ -8,14 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import java.util.*;
-
+//setting up controller
 @RestController
 public class WordController {
+    //creating List filled with arraylists of words and definitions
     private List<Definition> definitionList = new ArrayList<>();
-
+    //creates random
     Random random = new Random();
 
     public WordController(){
+        //adding words and definitions
         this.definitionList.add(new Definition("Estatic","Feeling or expressing overwhelming happiness or joyful excitement."));
         this.definitionList.add(new Definition("Gregarious", "Fond of company; sociable."));
         this.definitionList.add(new Definition("Ambivalent", "Having mixed feelings or contradictory ideas about something or someone."));
@@ -27,8 +29,10 @@ public class WordController {
         this.definitionList.add(new Definition("Tawdry", "Showy but cheap and of poor quality."));
         this.definitionList.add(new Definition("Zeal", "Great energy or enthusiasm in pursuit of a cause or an objective."));
     }
+    //URI is /word and GET is the method
     @RequestMapping(value = "/word", method = RequestMethod.GET)
     public Definition getDefinition(){
+        //returns random word and definition
         return definitionList.get(random.nextInt(definitionList.size()));
     }
 }
