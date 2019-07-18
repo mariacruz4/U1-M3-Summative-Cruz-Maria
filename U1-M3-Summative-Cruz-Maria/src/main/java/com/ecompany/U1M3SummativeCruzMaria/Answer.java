@@ -6,7 +6,7 @@ public class Answer {
 
     public Answer(){}
 
-    public Answer(String question, String answer){
+    public Answer(String answer){
         this.question = question;
         this.answer = answer;
     }
