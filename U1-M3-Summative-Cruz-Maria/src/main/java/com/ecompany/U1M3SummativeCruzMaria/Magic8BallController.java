@@ -29,8 +29,8 @@ public class Magic8BallController {
     }
     //URI is /magic and this is a POST method, so the user can input something
     @RequestMapping(value = "/magic", method = RequestMethod.POST)
-    public Answer askQuestion(@RequestBody @Valid Answer question){
-        //returns random answer
-        return answerList.get(random.nextInt(answerList.size()));
+    public String askQuestion(@RequestBody @Valid Answer question){
+        //returns random answer from the answers in the arraylist
+        return answerList.get(random.nextInt(answerList.size())).getAnswer();
     }
 }
